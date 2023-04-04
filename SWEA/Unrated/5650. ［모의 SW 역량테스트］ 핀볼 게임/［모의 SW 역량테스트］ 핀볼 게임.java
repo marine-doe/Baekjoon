@@ -1,29 +1,29 @@
 import java.util.Scanner;
- 
+  
 public class Solution {
     static int[][] map;
     static int[] row = { -1, 1, 0, 0 }, col = { 0, 0, -1, 1 };
     static int n, result, sx, sy;
- 
+  
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
- 
+  
         int t = sc.nextInt();
- 
+  
         for (int tc = 1; tc < t + 1; tc++) {
- 
+  
             StringBuilder sb = new StringBuilder("#" + tc + " ");
- 
+  
             n = sc.nextInt();
- 
+  
             map = new int[n][n];
- 
+  
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
                     map[i][j] = sc.nextInt();
                 }
             }
- 
+  
             result = 0;
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
@@ -36,7 +36,7 @@ public class Solution {
                             if (nr >= 0 && nc >= 0 && nr < n && nc < n) {
                                 play(nr, nc, k);
                             }else {
-                            	result = Math.max(result, 1);
+                                result = Math.max(result, 1);
                             }
                         }
                     }
@@ -47,7 +47,7 @@ public class Solution {
             System.out.println(sb);
         }
     }
- 
+  
     private static void play(int x, int y, int dir) {
         int sum = 0;
         outer: while (true) {
