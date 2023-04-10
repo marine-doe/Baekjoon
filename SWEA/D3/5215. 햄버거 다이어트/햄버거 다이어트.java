@@ -9,17 +9,17 @@ public class Solution {
 			int n = sc.nextInt();
 			int l = sc.nextInt();
 
-			int[] taste = new int[n + 1];
-			int[] cal = new int[n + 1];
+			int[] taste = new int[n];
+			int[] cal = new int[n];
 
-			for (int i = 1; i <= n; i++) {
+			for (int i = 0; i < n; i++) {
 				taste[i] = sc.nextInt();
 				cal[i] = sc.nextInt();
 			}
 
 			int[][] dp = new int[2][l + 1];
 
-			for (int i = 1; i <= n; i++) {
+			for (int i = 0; i < n; i++) {
 				for (int j = 1; j <= l; j++) {
 					if (j >= cal[i]) {
 						dp[1][j] = Math.max(dp[0][j], dp[0][j - cal[i]] + taste[i]);
@@ -27,6 +27,7 @@ public class Solution {
 						dp[1][j] = dp[0][j];
 					}
 				}
+				
 				for (int j = 1; j <= l; j++) {
 					dp[0][j] = dp[1][j];
 				}
